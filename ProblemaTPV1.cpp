@@ -49,12 +49,22 @@ bool leerModelos(ListaCoches& listaCoches)
 			getline(entrada, listaCoches.Coche[i].nombre);
 			//cout << listaCoches.Coche[i].codigo << listaCoches.Coche[i].precio << listaCoches.Coche[i].nombre << endl;
 		}
-		delete[]listaCoches.Coche;
 		return true;
 	}
 }
-int buscarCoche(ListaCoches listaCoches, int codigo) {
-	return 10;
+int buscarCoche(const ListaCoches& listaCoches, int codigo) {
+	int left = 0;
+	int right = listaCoches.tam -1;
+	while (left <= right) {
+		int mid = left + (right - left) / 2;
+		if (listaCoches.Coche[mid].codigo == codigo)
+			return mid;
+		else if (listaCoches.Coche[mid].codigo < codigo)
+			left = mid + 1;
+		else right = mid - 1;
+	}
+	return -1;
+
 }
 
 bool leerAlquileres(ListaAlquileres& listaAlquileres,const ListaCoches& listaCoches) 
@@ -81,7 +91,7 @@ bool leerAlquileres(ListaAlquileres& listaAlquileres,const ListaCoches& listaCoc
 			}
 		}
 		
-		//delete[]listaAlquileres.Alquiler;
+		
 		return true;
 	}
 }
@@ -99,6 +109,9 @@ void ordenarAlquileres(const ListaAlquileres& listaAlquileres) {
 		cout << elem << " ";
 	}
 	
+}
+void mostrarAlquileres(const ListaAlquileres& listaAlquileres) {
+
 }
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
