@@ -98,20 +98,30 @@ bool leerAlquileres(ListaAlquileres& listaAlquileres,const ListaCoches& listaCoc
 //bool operator<(const Alquiler& izdo, const Alquiler& dcho) {
 //	// Definición del orden
 //}
-void ordenarAlquileres(const ListaAlquileres& listaAlquileres) {
+void ordenarAlquileres(ListaAlquileres& listaAlquileres) {
 	vector<Date> fechas(listaAlquileres.tam);
 	for (int i = 0; i < fechas.size(); i++)
 	{
 		fechas[i] = listaAlquileres.Alquiler[i].fecha;
 	}
 	sort(fechas.begin(), fechas.end());
-	for (auto& elem: fechas) {
+	
+	/*for (auto& elem: fechas) {
 		cout << elem << " ";
-	}
+	}*/
 	
 }
 void mostrarAlquileres(const ListaAlquileres& listaAlquileres) {
-
+	for (int i = 0; i < listaAlquileres.tam; i++) {
+		if (listaAlquileres.Alquiler[i].Coche == nullptr) {
+			cout << listaAlquileres.Alquiler[i].fecha << " ERROR: Modelo inexistente" << endl;
+		}
+		else
+		{
+			cout << listaAlquileres.Alquiler[i].fecha << listaAlquileres.Alquiler[i].Coche[i].nombre<< " " << listaAlquileres.Alquiler[i].dias << " dia(s) por " << listaAlquileres.Alquiler[i].dias * listaAlquileres.Alquiler[i].Coche[i].precio << " euros" << endl;
+		}
+		
+	}
 }
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
@@ -120,4 +130,5 @@ int main() {
 	leerModelos(Coche);
 	leerAlquileres(Alquileres, Coche);
 	ordenarAlquileres(Alquileres);
+	mostrarAlquileres(Alquileres);
 }
