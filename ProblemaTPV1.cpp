@@ -88,6 +88,7 @@ bool leerAlquileres(ListaAlquileres& listaAlquileres,const ListaCoches& listaCoc
 			}
 			else {
 				listaAlquileres.Alquiler[i].Coche = &listaCoches.Coche[indice];
+				
 			}
 		}
 		
@@ -95,21 +96,17 @@ bool leerAlquileres(ListaAlquileres& listaAlquileres,const ListaCoches& listaCoc
 		return true;
 	}
 }
-//bool operator<(const Alquiler& izdo, const Alquiler& dcho) {
-//	// Definición del orden
-//}
-void ordenarAlquileres(ListaAlquileres& listaAlquileres) {
-	vector<Date> fechas(listaAlquileres.tam);
-	for (int i = 0; i < fechas.size(); i++)
-	{
-		fechas[i] = listaAlquileres.Alquiler[i].fecha;
-	}
-	sort(fechas.begin(), fechas.end());
+
+void ordenarAlquileres(Alquiler* listaAlquileres, int totalAlquileres) {
 	
-	/*for (auto& elem: fechas) {
-		cout << elem << " ";
+	sort(listaAlquileres, listaAlquileres + totalAlquileres);
+	/*for (int i = 0; i < totalAlquileres; i++) {
+		cout << listaAlquileres[i].Coche->nombre << " ";
 	}*/
-	
+}
+bool operator<(const Alquiler& izdo, const Alquiler& dcho) {
+	// Definición del orden
+	return izdo.fecha < dcho.fecha;
 }
 void mostrarAlquileres(const ListaAlquileres& listaAlquileres) {
 	for (int i = 0; i < listaAlquileres.tam; i++) {
@@ -118,7 +115,7 @@ void mostrarAlquileres(const ListaAlquileres& listaAlquileres) {
 		}
 		else
 		{
-			cout << listaAlquileres.Alquiler[i].fecha << listaAlquileres.Alquiler[i].Coche[i].nombre<< " " << listaAlquileres.Alquiler[i].dias << " dia(s) por " << listaAlquileres.Alquiler[i].dias * listaAlquileres.Alquiler[i].Coche[i].precio << " euros" << endl;
+			cout << listaAlquileres.Alquiler[i].fecha << listaAlquileres.Alquiler[i].Coche->nombre<< " " << listaAlquileres.Alquiler[i].dias << " dia(s) por " << listaAlquileres.Alquiler[i].dias * listaAlquileres.Alquiler[i].Coche->precio << " euros" << endl;
 		}
 		
 	}
@@ -129,6 +126,6 @@ int main() {
 	ListaAlquileres Alquileres;
 	leerModelos(Coche);
 	leerAlquileres(Alquileres, Coche);
-	ordenarAlquileres(Alquileres);
+	ordenarAlquileres(Alquileres.Alquiler, Alquileres.tam);
 	mostrarAlquileres(Alquileres);
 }
