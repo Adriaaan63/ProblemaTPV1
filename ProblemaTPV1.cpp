@@ -1,3 +1,6 @@
+//Adrián Castellanos Ormeño
+//Marcos Pantoja Rafael de la Cruz
+//G12
 #include <iostream>
 #include <fstream>
 #include <windows.h>
@@ -128,4 +131,6 @@ int main() {
 	leerAlquileres(Alquileres, Coche);
 	ordenarAlquileres(Alquileres.Alquiler, Alquileres.tam);
 	mostrarAlquileres(Alquileres);
+	delete []Coche.Coche;
+	delete []Alquileres.Alquiler;
 }
