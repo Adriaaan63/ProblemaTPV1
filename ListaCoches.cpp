@@ -9,6 +9,9 @@ ListaCoches::ListaCoches(int tam, Coche* coche, int cont) : tam(tam), coche(coch
 //int ListaCoches::getTam() const{
 //	return tam;
 //}
+Coche* ListaCoches::getCoche() const {
+	return coche;
+}
 bool ListaCoches::leerModelos()
 {
 	ifstream entrada;
@@ -29,7 +32,7 @@ bool ListaCoches::leerModelos()
 		return true;
 	}
 }
-int ListaCoches::buscarCoche(int codigo) {
+int ListaCoches::buscarCoche(int codigo) const {
 	int left = 0;
 	int right = tam - 1;
 	while (left <= right) {

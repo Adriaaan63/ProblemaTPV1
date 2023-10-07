@@ -1,5 +1,6 @@
 #include "ListaAlquileres.h"
 #include "ListaCoches.h"
+#include "Alquiler.h"
 #include <iostream>
 #include <fstream>
 #include <windows.h>
@@ -12,25 +13,30 @@ bool ListaAlquileres::leerAlquileres(const ListaCoches& listaCoches)
 	if (!entrada.is_open()) {
 		return false;
 	}
+	
 	else {
 		entrada >> tam;
 		alquiler = new Alquiler[tam];
 		for (int i = 0;!entrada.eof() && i < tam; i++) {
-			entrada >> listaAlquileres.Alquiler[i].codigo;
-			entrada >> listaAlquileres.Alquiler[i].fecha;
-			entrada >> listaAlquileres.Alquiler[i].dias;
+			entrada >> alquiler[i];
 			//cout << listaAlquileres.Alquiler[i].codigo << listaAlquileres.Alquiler[i].fecha << listaAlquileres.Alquiler[i].dias << endl;
-			int indice = buscarCoche(listaCoches, listaAlquileres.Alquiler[i].codigo);
+			int indice = listaCoches.buscarCoche(alquiler[i].getCodigo());
 			if (indice == -1) {
-				listaAlquileres.Alquiler[i].Coche = nullptr;
+				alquiler[i].setCoche(nullptr);
 			}
 			else {
-				listaAlquileres.Alquiler[i].Coche = &listaCoches.Coche[indice];
+				alquiler[i].setCoche(&listaCoches.getCoche()[indice]);
 
 			}
 		}
-
-
 		return true;
 	}
+}
+void ordenarAlquileres(Alquiler* listaAlquileres, int totalAlquileres) {
+
+	sort(listaAlquileres, listaAlquileres + totalAlquileres);
+}
+bool operator<(const Alquiler& izdo, const Alquiler& dcho) {
+	// Definición del orden
+	return izdo.fecha < dcho.fecha;
 }

@@ -14,7 +14,7 @@ public:
 	int getCodigo() const;
 	int getPrecio() const;
 	string getNombre()const;
-	friend istream& operator>>(std::istream& in, Coche& d);
-	friend istream& getline(std::istream& in, Coche& coche);
+	friend istream& operator>>(istream& in, Coche& coche);
+	friend istream& getline(istream& in, Coche& coche);
 };
 

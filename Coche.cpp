@@ -17,6 +17,6 @@ string Coche::getNombre()const {
 istream& operator>>(istream& in, Coche& coche) {
 	return in >> coche.codigo >> coche.precio;
 }
-istream& getline(std::istream& in, Coche& coche) {
+istream& getline(istream& in, Coche& coche) {
 	return getline(in, coche.nombre);
 }
