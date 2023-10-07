@@ -17,6 +17,8 @@ public:
 	int getDias() const;
 	void setCoche(Coche* nuevoCoche);
 	Coche* getCoche() const;
-	friend istream& operator>>(std::istream& in, Alquiler& alquiler);
+	friend istream& operator>>(istream& in, Alquiler& alquiler);
+	friend istream& sort(Alquiler* alquiler, Alquiler* totalAlquileres);
+	
 };
 

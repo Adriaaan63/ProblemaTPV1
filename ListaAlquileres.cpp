@@ -32,9 +32,9 @@ bool ListaAlquileres::leerAlquileres(const ListaCoches& listaCoches)
 		return true;
 	}
 }
-void ordenarAlquileres(Alquiler* listaAlquileres, int totalAlquileres) {
+void ListaAlquileres::ordenarAlquileres(int totalAlquileres) {
 
-	sort(listaAlquileres, listaAlquileres + totalAlquileres);
+	sort(alquiler, alquiler + totalAlquileres);
 }
 bool operator<(const Alquiler& izdo, const Alquiler& dcho) {
 	// Definición del orden

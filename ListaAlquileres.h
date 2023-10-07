@@ -12,5 +12,6 @@ public:
 	ListaAlquileres();
 	ListaAlquileres(Alquiler* alquiler, int cont, int tam);
 	bool leerAlquileres(const ListaCoches& listaCoches);
+	void ordenarAlquileres(int totalAlquileres);
 };
 

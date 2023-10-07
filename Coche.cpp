@@ -18,5 +18,6 @@ istream& operator>>(istream& in, Coche& coche) {
 	return in >> coche.codigo >> coche.precio;
 }
 istream& getline(istream& in, Coche& coche) {
-	return getline(in, coche.nombre);
+	 getline(in, coche.nombre);
+	 return in;
 }
