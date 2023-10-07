@@ -14,5 +14,6 @@ public:
 	bool leerAlquileres(const ListaCoches& listaCoches);
 	void ordenarAlquileres(int totalAlquileres);
 	void mostrarAlquileres();
+	void agregarAlquiler();
 };
 

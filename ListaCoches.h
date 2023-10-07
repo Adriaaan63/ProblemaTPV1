@@ -14,5 +14,8 @@ public:
 	bool leerModelos();
 	int buscarCoche(int codigo) const;
 	Coche* getCoche() const;
+	int mostrarCoches();
+	void agregarCoche2();
+	void agregarCoche(const Coche& nuevoCoche);
 };
 

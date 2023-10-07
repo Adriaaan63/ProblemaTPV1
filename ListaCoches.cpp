@@ -44,5 +44,43 @@ int ListaCoches::buscarCoche(int codigo) const {
 		else right = mid - 1;
 	}
 	return -1;
+	
+}
+int ListaCoches::mostrarCoches() {
+	if (cont == 0) {
+		cout << "No hay coches disponibles en la lista." << endl;
+		return 0;
+	}
+
+	cout << "Lista de Coches:" << endl;
+	for (int i = 0; i < cont; i++) {
+		cout << "Código: " << coche[i].getCodigo() << endl;
+		cout << "Nombre: " << coche[i].getNombre() << endl;
+		cout << "Precio: " << coche[i].getPrecio() << endl;
+		//esto es para espaciar los coches entre si 
+		cout << "-------------------------" << endl;
+	}
+
+	return cont;
 
 }
+void ListaCoches::agregarCoche2() {
+	Coche nuevoCoche;
+	cout << "Ingrese el código del coche: ";
+	cin >> nuevoCoche;
+	agregarCoche(nuevoCoche);
+}
+void ListaCoches::agregarCoche(const Coche& nuevoCoche) {
+	if (cont < tam) {
+		coche[cont] = nuevoCoche;
+		cont++;
+		cout << "Coche agregado exitosamente." << endl;
+	}
+	else {
+		cout << "La lista de coches está llena. No se puede agregar más coches." << endl;
+	}
+
+}
+
+
+

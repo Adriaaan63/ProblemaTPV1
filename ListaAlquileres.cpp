@@ -52,3 +52,8 @@ void ListaAlquileres::mostrarAlquileres() {
 
 	}
 }
+void ListaAlquileres::agregarAlquiler() {
+
+}
+
+
