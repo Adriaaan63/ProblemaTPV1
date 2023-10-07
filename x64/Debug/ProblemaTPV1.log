@@ -1,2 +1,9 @@
-﻿  ProblemaTPV1.cpp
-  ProblemaTPV1.vcxproj -> C:\Users\usuario\Desktop\2ºUniversidad\TPV1\Ejercicios\ProblemaTPV1\x64\Debug\ProblemaTPV1.exe
+﻿  Alquiler.cpp
+  Coche.cpp
+  ListaAlquileres.cpp
+  ListaCoches.cpp
+  ProblemaTPV1.cpp
+  Generando código...
+ProblemaTPV1.obj : error LNK2005: ya se definió "public: __cdecl Coche::Coche(void)" (??0Coche@@QEAA@XZ) en Coche.obj
+ProblemaTPV1.obj : error LNK2005: ya se definió "public: __cdecl ListaCoches::ListaCoches(void)" (??0ListaCoches@@QEAA@XZ) en ListaCoches.obj
+C:\Users\usuario\Desktop\2ºUniversidad\TPV1\Ejercicios\ProblemaTPV1\x64\Debug\ProblemaTPV1.exe : fatal error LNK1169: se encontraron uno o más símbolos definidos simultáneamente

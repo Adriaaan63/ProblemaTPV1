@@ -13,5 +13,6 @@ public:
 	ListaCoches(int tam, Coche* coche, int cont);
 	int getTam() const;
 	bool leerModelos();
+	int buscarCoche(int codigo);
 };
 

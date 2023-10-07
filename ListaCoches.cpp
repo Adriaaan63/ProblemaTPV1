@@ -22,11 +22,24 @@ bool ListaCoches::leerModelos()
 		coche = new Coche[tam];
 		for (int i = 0; !entrada.eof() && i < tam; i++)
 		{
-			entrada >> coche[i].getCodigo();
-			entrada >> coche[i].getPrecio();
-			getline(entrada, coche[i].getNombre());
+			entrada >> coche[i];
+			getline(entrada, coche[i]);
 			//cout << listaCoches.Coche[i].codigo << listaCoches.Coche[i].precio << listaCoches.Coche[i].nombre << endl;
 		}
 		return true;
 	}
+}
+int ListaCoches::buscarCoche(int codigo) {
+	int left = 0;
+	int right = tam - 1;
+	while (left <= right) {
+		int mid = left + (right - left) / 2;
+		if (coche[mid].getCodigo() == codigo)
+			return mid;
+		else if (coche[mid].getCodigo() < codigo)
+			left = mid + 1;
+		else right = mid - 1;
+	}
+	return -1;
+
 }

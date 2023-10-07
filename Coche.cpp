@@ -2,8 +2,9 @@
 #include <iostream>
 #include <fstream>
 #include <windows.h>
-
-
+#include <string>
+Coche::Coche(): codigo(), precio(), nombre() {}
+Coche::Coche(int codigo, int precio, string nombre) : codigo(codigo), precio(precio), nombre(nombre) {}
 int Coche::getCodigo() const {
 	return codigo;
 }
@@ -12,4 +13,10 @@ int Coche::getPrecio() const {
 }
 string Coche::getNombre()const {
 	return nombre;
+}
+istream& operator>>(istream& in, Coche& coche) {
+	return in >> coche.codigo >> coche.precio;
+}
+istream& getline(std::istream& in, Coche& coche) {
+	return getline(in, coche.nombre);
 }
