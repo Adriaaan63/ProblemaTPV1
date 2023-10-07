@@ -32,7 +32,7 @@ struct ListaAlquileres
 {
 	Alquiler* Alquiler;
 	int cont;
-	int tam = cont + 10;;
+	int tam = cont + 10;
 };
 bool leerModelos(ListaCoches& listaCoches)
 {
