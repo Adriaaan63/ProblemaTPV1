@@ -6,26 +6,33 @@
 #include "Alquiler.h"
 #include "ListaCoches.h"
 #include "ListaAlquileres.h"
+#include <fstream>
+#include <windows.h>
+#include "Date.h"
+#include <string>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
 int main() {
+    SetConsoleOutputCP(CP_UTF8);
     ListaCoches listaCoches;
     ListaAlquileres listaAlquileres;
 
     // Cargar las listas de coches y alquileres (asegúrate de implementar esta función)
     // cargarListaCoches(listaCoches); // Por ejemplo, suponiendo que tengas una función para cargar coches
     // cargarListaAlquileres(listaAlquileres); // Suponiendo que tengas una función para cargar alquileres y ordenarlos
-
+    listaCoches.leerModelos();
     int opcion;
     do {
-        cout << "Menú:" << endl;
+        cout << "Menu:" << endl;
         cout << "1. Mostrar Coches" << endl;
         cout << "2. Mostrar Alquileres" << endl;
-        cout << "3. Añadir un nuevo Coche" << endl;
-        cout << "4. Añadir un nuevo Alquiler" << endl;
+        cout << "3. Agregar un nuevo Coche" << endl;
+        cout << "4. Agregar un nuevo Alquiler" << endl;
         cout << "5. Salir" << endl;
-        cout << "Seleccione una opción: ";
+        cout << "Seleccione una opcion: ";
         cin >> opcion;
 
         switch (opcion) {
@@ -40,8 +47,6 @@ int main() {
         case 3:
             // Agregar  nuevo coche a la lista 
              listaCoches.agregarCoche2();
-            
-
             break;
         case 4:
             // Agregar alquiler a la lista 

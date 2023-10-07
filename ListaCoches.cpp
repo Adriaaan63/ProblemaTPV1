@@ -22,13 +22,16 @@ bool ListaCoches::leerModelos()
 	else
 	{
 		entrada >> tam;
+		tam += 10;
 		coche = new Coche[tam];
 		for (int i = 0; !entrada.eof() && i < tam; i++)
 		{
 			entrada >> coche[i];
 			getline(entrada, coche[i]);
+			cont++;
 			//cout << listaCoches.Coche[i].codigo << listaCoches.Coche[i].precio << listaCoches.Coche[i].nombre << endl;
 		}
+
 		return true;
 	}
 }
@@ -54,7 +57,7 @@ int ListaCoches::mostrarCoches() {
 
 	cout << "Lista de Coches:" << endl;
 	for (int i = 0; i < cont; i++) {
-		cout << "Código: " << coche[i].getCodigo() << endl;
+		cout << "Codigo: " << coche[i].getCodigo() << endl;
 		cout << "Nombre: " << coche[i].getNombre() << endl;
 		cout << "Precio: " << coche[i].getPrecio() << endl;
 		//esto es para espaciar los coches entre si 
@@ -66,7 +69,7 @@ int ListaCoches::mostrarCoches() {
 }
 void ListaCoches::agregarCoche2() {
 	Coche nuevoCoche;
-	cout << "Ingrese el código del coche: ";
+	cout << "Ingrese datos del coche: ";
 	cin >> nuevoCoche;
 	agregarCoche(nuevoCoche);
 }
@@ -77,7 +80,7 @@ void ListaCoches::agregarCoche(const Coche& nuevoCoche) {
 		cout << "Coche agregado exitosamente." << endl;
 	}
 	else {
-		cout << "La lista de coches está llena. No se puede agregar más coches." << endl;
+		cout << "La lista de coches esta llena. No se puede agregar mas coches." << endl;
 	}
 
 }
