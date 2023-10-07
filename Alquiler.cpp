@@ -13,6 +13,9 @@ int Alquiler::getCodigo()const {
 int Alquiler::getDias() const {
 	return dias;
 }
+Date Alquiler::getFecha()const {
+	return fecha;
+}
 void Alquiler::setCoche(Coche* nuevoCoche) {
 	coche = nuevoCoche;
 }

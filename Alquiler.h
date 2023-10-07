@@ -15,6 +15,7 @@ public:
 	Alquiler(int codigo, Date fecha, int dias, Coche* coche);
 	int getCodigo() const;
 	int getDias() const;
+	Date getFecha() const;
 	void setCoche(Coche* nuevoCoche);
 	Coche* getCoche() const;
 	friend istream& operator>>(istream& in, Alquiler& alquiler);

@@ -38,5 +38,17 @@ void ListaAlquileres::ordenarAlquileres(int totalAlquileres) {
 }
 bool operator<(const Alquiler& izdo, const Alquiler& dcho) {
 	// Definición del orden
-	return izdo.fecha < dcho.fecha;
+	return izdo.getFecha() < dcho.getFecha();
+}
+void ListaAlquileres::mostrarAlquileres() {
+	for (int i = 0; i < tam; i++) {
+		if (alquiler[i].getCoche() == nullptr) {
+			cout << alquiler[i].getFecha() << " ERROR: Modelo inexistente" << endl;
+		}
+		else
+		{
+			cout << alquiler[i].getFecha() << alquiler[i].getCoche()->getNombre() << " " << alquiler[i].getDias() << " dia(s) por " << alquiler[i].getDias() * alquiler[i].getCoche()->getPrecio() << " euros" << endl;
+		}
+
+	}
 }
