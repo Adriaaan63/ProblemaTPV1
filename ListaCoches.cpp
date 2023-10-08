@@ -2,7 +2,6 @@
 #include "Coche.h"
 #include <iostream>
 #include <fstream>
-#include <windows.h>
 #include "checkML.h"
 ListaCoches::ListaCoches() : tam(), coche(), cont() {}
 ListaCoches::ListaCoches(int tam, Coche* coche, int cont) : tam(tam), coche(coche), cont(cont) {}

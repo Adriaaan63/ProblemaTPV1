@@ -1,7 +1,6 @@
 #include "Coche.h"
 #include <iostream>
 #include <fstream>
-#include <windows.h>
 #include <string>
 #include "checkML.h"
 Coche::Coche(): codigo(), precio(), nombre() {}

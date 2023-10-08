@@ -3,7 +3,6 @@
 #include "Alquiler.h"
 #include <iostream>
 #include <fstream>
-#include <windows.h>
 #include <algorithm>
 #include "checkML.h"
 ListaAlquileres::ListaAlquileres() : alquiler(), cont(), tam() {}
