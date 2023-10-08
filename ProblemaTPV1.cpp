@@ -2,7 +2,7 @@
 ////Marcos Pantoja Rafael de la Cruz
 ////G12
 #include <iostream>
-#include "Coche.h" // Reemplaza con el nombre real de tus archivos de encabezado
+#include "Coche.h" 
 #include "Alquiler.h"
 #include "ListaCoches.h"
 #include "ListaAlquileres.h"
@@ -12,6 +12,8 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+
+
 
 using namespace std;
 
@@ -24,8 +26,10 @@ int main() {
     // cargarListaCoches(listaCoches); // Por ejemplo, suponiendo que tengas una función para cargar coches
     // cargarListaAlquileres(listaAlquileres); // Suponiendo que tengas una función para cargar alquileres y ordenarlos
     listaCoches.leerModelos();
+    listaAlquileres.leerAlquileres(listaCoches);
     int opcion;
     do {
+        
         cout << "Menu:" << endl;
         cout << "1. Mostrar Coches" << endl;
         cout << "2. Mostrar Alquileres" << endl;
@@ -46,11 +50,11 @@ int main() {
             break;
         case 3:
             // Agregar  nuevo coche a la lista 
-             listaCoches.agregarCoche2();
+            listaCoches.agregarCoche2();
             break;
         case 4:
             // Agregar alquiler a la lista 
-            listaAlquileres.agregarAlquiler();
+            listaAlquileres.agregarAlquiler(listaCoches);
             break;
         case 5:
             cout << "Saliendo del programa." << endl;
@@ -59,6 +63,7 @@ int main() {
             cout << "Opción no válida. Intente nuevamente." << endl;
             break;
         }
+        cin.ignore();
     } while (opcion != 5);
 
     return 0;

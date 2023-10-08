@@ -49,14 +49,13 @@ int ListaCoches::buscarCoche(int codigo) const {
 	return -1;
 	
 }
-int ListaCoches::mostrarCoches() {
+void ListaCoches::mostrarCoches() {
 	if (cont == 0) {
 		cout << "No hay coches disponibles en la lista." << endl;
-		return 0;
 	}
 
 	cout << "Lista de Coches:" << endl;
-	for (int i = 0; i < cont; i++) {
+	for (int i = 0; i < cont -1; i++) {
 		cout << "Codigo: " << coche[i].getCodigo() << endl;
 		cout << "Nombre: " << coche[i].getNombre() << endl;
 		cout << "Precio: " << coche[i].getPrecio() << endl;
@@ -64,11 +63,11 @@ int ListaCoches::mostrarCoches() {
 		cout << "-------------------------" << endl;
 	}
 
-	return cont;
 
 }
 void ListaCoches::agregarCoche2() {
 	Coche nuevoCoche;
+	cin.ignore();
 	cout << "Ingrese datos del coche: ";
 	cin >> nuevoCoche;
 	agregarCoche(nuevoCoche);

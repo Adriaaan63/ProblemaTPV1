@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <windows.h>
+#include <algorithm>
 ListaAlquileres::ListaAlquileres() : alquiler(), cont(), tam() {}
 ListaAlquileres::ListaAlquileres(Alquiler* alquiler, int cont, int tam) : alquiler(alquiler), cont(cont), tam(tam) {}
 bool ListaAlquileres::leerAlquileres(const ListaCoches& listaCoches)
@@ -16,6 +17,7 @@ bool ListaAlquileres::leerAlquileres(const ListaCoches& listaCoches)
 	
 	else {
 		entrada >> tam;
+		tam += 10;
 		alquiler = new Alquiler[tam];
 		for (int i = 0;!entrada.eof() && i < tam; i++) {
 			entrada >> alquiler[i];
@@ -28,6 +30,7 @@ bool ListaAlquileres::leerAlquileres(const ListaCoches& listaCoches)
 				alquiler[i].setCoche(&listaCoches.getCoche()[indice]);
 
 			}
+			cont++;
 		}
 		return true;
 	}
@@ -41,6 +44,7 @@ bool operator<(const Alquiler& izdo, const Alquiler& dcho) {
 	return izdo.getFecha() < dcho.getFecha();
 }
 void ListaAlquileres::mostrarAlquileres() {
+	ordenarAlquileres(cont -1);
 	for (int i = 0; i < tam; i++) {
 		if (alquiler[i].getCoche() == nullptr) {
 			cout << alquiler[i].getFecha() << " ERROR: Modelo inexistente" << endl;
@@ -52,8 +56,31 @@ void ListaAlquileres::mostrarAlquileres() {
 
 	}
 }
-void ListaAlquileres::agregarAlquiler() {
+void ListaAlquileres::agregarAlquiler(const ListaCoches& listaCoches) {
+	Alquiler nuevoAlquiler;
+	cout << "Ingrese los datos del nuevo alquiler: ";
+	cin >> nuevoAlquiler;
+	agregarAlquiler2(nuevoAlquiler, listaCoches);
 
+}
+void ListaAlquileres::agregarAlquiler2(const Alquiler& nuevoAlquiler, const ListaCoches& listaCoches) {
+	if (cont < tam) {
+		alquiler[cont] = nuevoAlquiler;
+		int indice = listaCoches.buscarCoche(alquiler[cont].getCodigo());
+		if (indice == -1) {
+			alquiler[cont].setCoche(nullptr);
+		}
+		else {
+			alquiler[cont].setCoche(&listaCoches.getCoche()[indice]);
+
+		}
+		cont++;
+		cout << "Alquiler agregado exitosamente." << endl;
+	}
+	else
+	{
+		cout << "La lista de alquileres esta llena. No se puede agregar mas." << endl;
+	}
 }
 
 

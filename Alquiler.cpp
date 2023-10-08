@@ -25,6 +25,7 @@ Coche* Alquiler::getCoche() const {
 istream& operator>>(istream& in, Alquiler& alquiler	) {
 	return in >> alquiler.codigo >> alquiler.fecha >> alquiler.dias;
 }
-istream& sort(Alquiler* alquiler, Alquiler* totalAlquileres) { 
-	return sort(alquiler, totalAlquileres);
-}
+//istream& sort(Alquiler* alquiler, Alquiler* totalAlquileres) { 
+//	return sort(alquiler, totalAlquileres);
+//}
+

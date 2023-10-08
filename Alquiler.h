@@ -19,7 +19,7 @@ public:
 	void setCoche(Coche* nuevoCoche);
 	Coche* getCoche() const;
 	friend istream& operator>>(istream& in, Alquiler& alquiler);
-	friend istream& sort(Alquiler* alquiler, Alquiler* totalAlquileres);
+	/*friend istream& sort(Alquiler* alquiler, Alquiler* totalAlquileres);*/
 	
 };
 
