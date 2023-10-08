@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-
+#include "checkML.h"
 
 
 using namespace std;
@@ -63,7 +63,7 @@ int main() {
             cout << "Opción no válida. Intente nuevamente." << endl;
             break;
         }
-        cin.ignore();
+        
     } while (opcion != 5);
 
     return 0;

@@ -5,6 +5,7 @@
 #include <fstream>
 #include <windows.h>
 #include <algorithm>
+#include "checkML.h"
 ListaAlquileres::ListaAlquileres() : alquiler(), cont(), tam() {}
 ListaAlquileres::ListaAlquileres(Alquiler* alquiler, int cont, int tam) : alquiler(alquiler), cont(cont), tam(tam) {}
 bool ListaAlquileres::leerAlquileres(const ListaCoches& listaCoches)
@@ -44,7 +45,7 @@ bool operator<(const Alquiler& izdo, const Alquiler& dcho) {
 	return izdo.getFecha() < dcho.getFecha();
 }
 void ListaAlquileres::mostrarAlquileres() {
-	ordenarAlquileres(cont -1);
+	ordenarAlquileres(cont);
 	for (int i = 0; i < tam; i++) {
 		if (alquiler[i].getCoche() == nullptr) {
 			cout << alquiler[i].getFecha() << " ERROR: Modelo inexistente" << endl;

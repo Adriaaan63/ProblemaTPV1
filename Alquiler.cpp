@@ -4,6 +4,7 @@
 #include <fstream>
 #include <windows.h>
 #include <string>
+#include "checkML.h"
 Alquiler::Alquiler() :codigo(), fecha(), dias(), coche() {};
 Alquiler::Alquiler(int codigo, Date fecha, int dias, Coche* coche): codigo(codigo), fecha(fecha), dias(dias), coche(coche) {}
 
