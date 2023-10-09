@@ -5,7 +5,7 @@
 #include <fstream>
 #include <string>
 Alquiler::Alquiler() :codigo(), fecha(), dias(), coche() {};
-Alquiler::Alquiler(int codigo, Date fecha, int dias, Coche* coche): codigo(codigo), fecha(fecha), dias(dias), coche(coche) {}
+Alquiler::Alquiler(int codigo, Date fecha, int dias, Coche** coche): codigo(codigo), fecha(fecha), dias(dias), coche(coche) {}
 
 int Alquiler::getCodigo()const {
 	return codigo;
@@ -16,10 +16,10 @@ int Alquiler::getDias() const {
 Date Alquiler::getFecha()const {
 	return fecha;
 }
-void Alquiler::setCoche(Coche* nuevoCoche) {
+void Alquiler::setCoche(Coche** nuevoCoche) {
 	coche = nuevoCoche;
 }
-Coche* Alquiler::getCoche() const {
+Coche** Alquiler::getCoche() const {
 	return coche;
 }
 istream& operator>>(istream& in, Alquiler& alquiler	) {

@@ -49,7 +49,7 @@ bool operator<(const Alquiler& izdo, const Alquiler& dcho) {
 }
 void ListaAlquileres::mostrarAlquileres(const ListaCoches& listaCoches) {
 	ordenarAlquileres(cont);
-	for (int i = 0;i < tam; i++) {
+	for (int i = 0;i < cont; i++) {
 		int indice = listaCoches.buscarCoche(alquiler[i].getCodigo());
 		if (indice == -1) {
 			alquiler[i].setCoche(nullptr);
@@ -58,7 +58,6 @@ void ListaAlquileres::mostrarAlquileres(const ListaCoches& listaCoches) {
 			alquiler[i].setCoche(&listaCoches.getCoche()[indice]);
 
 		}
-		cont++;
 	}
 	for (int i = 0; i < tam; i++) {
 		if (alquiler[i].getCoche() == nullptr) {
@@ -66,7 +65,8 @@ void ListaAlquileres::mostrarAlquileres(const ListaCoches& listaCoches) {
 		}
 		else
 		{
-			cout << alquiler[i].getFecha() << alquiler[i].getCoche()->getNombre() << " " << alquiler[i].getDias() << " dia(s) por " << alquiler[i].getDias() * alquiler[i].getCoche()->getPrecio() << " euros" << endl;
+			Coche* coche = *(alquiler[i].getCoche());
+			cout << alquiler[i].getFecha() << coche->getNombre() << " " << alquiler[i].getDias() << " dia(s) por " << alquiler[i].getDias() * coche->getPrecio() << " euros" << endl;
 		}
 
 	}

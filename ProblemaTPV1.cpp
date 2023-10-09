@@ -47,6 +47,7 @@ int main() {
             break;
         case 2:
             // Mostrar la lista de alquileres 
+
             listaAlquileres.mostrarAlquileres(listaCoches);
             break;
         case 3:
@@ -67,7 +68,6 @@ int main() {
         
     } while (opcion != 5);
     delete[]listaAlquileres.getAlquiler();
-    delete []listaCoches.getCoche();
     return 0;
 }
 //#include <iostream>
