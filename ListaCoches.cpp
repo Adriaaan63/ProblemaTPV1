@@ -2,13 +2,16 @@
 #include "Coche.h"
 #include <iostream>
 #include <fstream>
-#include "checkML.h"
+#include <algorithm>
 ListaCoches::ListaCoches() : tam(), coche(), cont() {}
 ListaCoches::ListaCoches(int tam, Coche* coche, int cont) : tam(tam), coche(coche), cont(cont) {}
 
 //int ListaCoches::getTam() const{
 //	return tam;
 //}
+int ListaCoches::getCont()const {
+	return cont;
+}
 Coche* ListaCoches::getCoche() const {
 	return coche;
 }
@@ -37,7 +40,7 @@ bool ListaCoches::leerModelos()
 }
 int ListaCoches::buscarCoche(int codigo) const {
 	int left = 0;
-	int right = tam - 1;
+	int right = cont -1;
 	while (left <= right) {
 		int mid = left + (right - left) / 2;
 		if (coche[mid].getCodigo() == codigo)
@@ -49,13 +52,20 @@ int ListaCoches::buscarCoche(int codigo) const {
 	return -1;
 	
 }
+void ListaCoches::ordenarCoches(int totalCoches) const{
+	sort(coche, coche + totalCoches);
+}
+bool operator<(const Coche& izdo, const Coche& dcho) {
+	// Definición del orden
+	return izdo.getCodigo() < dcho.getCodigo();
+}
 void ListaCoches::mostrarCoches() {
 	if (cont == 0) {
 		cout << "No hay coches disponibles en la lista." << endl;
 	}
 
 	cout << "Lista de Coches:" << endl;
-	for (int i = 0; i < cont -1; i++) {
+	for (int i = 0; i < cont; i++) {
 		cout << "Codigo: " << coche[i].getCodigo() << endl;
 		cout << "Nombre: " << coche[i].getNombre() << endl;
 		cout << "Precio: " << coche[i].getPrecio() << endl;
@@ -65,12 +75,14 @@ void ListaCoches::mostrarCoches() {
 
 
 }
-void ListaCoches::agregarCoche2() {
+void ListaCoches::agregarCoche2(){
 	Coche nuevoCoche;
 	
 	cout << "Ingrese datos del coche: ";
 	cin >> nuevoCoche;
+	getline(cin, nuevoCoche);
 	agregarCoche(nuevoCoche);
+	ordenarCoches(cont);
 }
 void ListaCoches::agregarCoche(const Coche& nuevoCoche) {
 	if (cont < tam) {

@@ -4,9 +4,13 @@
 #include <iostream>
 #include <fstream>
 #include <algorithm>
-#include "checkML.h"
 ListaAlquileres::ListaAlquileres() : alquiler(), cont(), tam() {}
 ListaAlquileres::ListaAlquileres(Alquiler* alquiler, int cont, int tam) : alquiler(alquiler), cont(cont), tam(tam) {}
+
+Alquiler* ListaAlquileres::getAlquiler() const {
+	return alquiler;
+}
+
 bool ListaAlquileres::leerAlquileres(const ListaCoches& listaCoches)
 {
 	ifstream entrada;
@@ -43,8 +47,19 @@ bool operator<(const Alquiler& izdo, const Alquiler& dcho) {
 	// Definición del orden
 	return izdo.getFecha() < dcho.getFecha();
 }
-void ListaAlquileres::mostrarAlquileres() {
+void ListaAlquileres::mostrarAlquileres(const ListaCoches& listaCoches) {
 	ordenarAlquileres(cont);
+	for (int i = 0;i < tam; i++) {
+		int indice = listaCoches.buscarCoche(alquiler[i].getCodigo());
+		if (indice == -1) {
+			alquiler[i].setCoche(nullptr);
+		}
+		else {
+			alquiler[i].setCoche(&listaCoches.getCoche()[indice]);
+
+		}
+		cont++;
+	}
 	for (int i = 0; i < tam; i++) {
 		if (alquiler[i].getCoche() == nullptr) {
 			cout << alquiler[i].getFecha() << " ERROR: Modelo inexistente" << endl;
@@ -56,24 +71,24 @@ void ListaAlquileres::mostrarAlquileres() {
 
 	}
 }
-void ListaAlquileres::agregarAlquiler(const ListaCoches& listaCoches) {
+void ListaAlquileres::agregarAlquiler() {
 	Alquiler nuevoAlquiler;
 	cout << "Ingrese los datos del nuevo alquiler: ";
 	cin >> nuevoAlquiler;
-	agregarAlquiler2(nuevoAlquiler, listaCoches);
+	agregarAlquiler2(nuevoAlquiler);
 
 }
-void ListaAlquileres::agregarAlquiler2(const Alquiler& nuevoAlquiler, const ListaCoches& listaCoches) {
+void ListaAlquileres::agregarAlquiler2(const Alquiler& nuevoAlquiler) {
 	if (cont < tam) {
 		alquiler[cont] = nuevoAlquiler;
-		int indice = listaCoches.buscarCoche(alquiler[cont].getCodigo());
+		/*int indice = listaCoches.buscarCoche(alquiler[cont].getCodigo());
 		if (indice == -1) {
 			alquiler[cont].setCoche(nullptr);
 		}
 		else {
 			alquiler[cont].setCoche(&listaCoches.getCoche()[indice]);
 
-		}
+		}*/
 		cont++;
 		cout << "Alquiler agregado exitosamente." << endl;
 	}

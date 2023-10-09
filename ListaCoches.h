@@ -1,7 +1,7 @@
 #pragma once
 #include "Coche.h"
 #include <iostream>
-#include "checkML.h"
+
 using namespace std;
 class ListaCoches
 {
@@ -15,8 +15,10 @@ public:
 	bool leerModelos();
 	int buscarCoche(int codigo) const;
 	Coche* getCoche() const;
+	int getCont() const;
 	void mostrarCoches();
 	void agregarCoche2();
 	void agregarCoche(const Coche& nuevoCoche);
+	void ordenarCoches(int totalCoches)const;
 };
 

@@ -47,7 +47,7 @@ int main() {
             break;
         case 2:
             // Mostrar la lista de alquileres 
-            listaAlquileres.mostrarAlquileres();
+            listaAlquileres.mostrarAlquileres(listaCoches);
             break;
         case 3:
             // Agregar  nuevo coche a la lista 
@@ -55,7 +55,7 @@ int main() {
             break;
         case 4:
             // Agregar alquiler a la lista 
-            listaAlquileres.agregarAlquiler(listaCoches);
+            listaAlquileres.agregarAlquiler();
             break;
         case 5:
             cout << "Saliendo del programa." << endl;
@@ -66,7 +66,8 @@ int main() {
         }
         
     } while (opcion != 5);
-
+    delete[]listaAlquileres.getAlquiler();
+    delete []listaCoches.getCoche();
     return 0;
 }
 //#include <iostream>
